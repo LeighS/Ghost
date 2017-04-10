@@ -27,6 +27,7 @@ var debug = require('debug')('ghost:boot:init'),
     xmlrpc = require('./data/xml/xmlrpc'),
     slack = require('./data/slack'),
     GhostServer = require('./ghost-server'),
+    //AppInsights = require('applicationinsights'),
     scheduling = require('./scheduling'),
     settings = require('./settings'),
     settingsCache = require('./settings/cache'),
@@ -92,6 +93,7 @@ function init() {
         });
     }).then(function () {
         debug('Auth done');
+        //AppInsights.setup('20288dee-9a9c-4d9f-bc1f-27d71a5ac00c').start();.
         return new GhostServer(parentApp);
     }).then(function (_ghostServer) {
         ghostServer = _ghostServer;
